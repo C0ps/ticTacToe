@@ -6,7 +6,7 @@ const checkCondition = ticTacToe.checkCondition;
 const printMatriz = ticTacToe.printMatriz;
 
 describe("Tic-Tac-Toe test", () => {
-    test("Init error", () => {
+    test("Init Test Case", () => {
         expect(ticTacToeFunction()).toBe(true);
     });
     test("Generate matriz with: 3", () => {
