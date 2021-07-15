@@ -87,7 +87,7 @@ function printMatriz(lengthMatriz, xArray, oArray) {
         }
         matrizPrint += index == 2 ? '' : '\n' + '-+-+-' + '\n';
     }
-    return(matrizPrint);
+    return (matrizPrint);
 }
 
 module.exports = {
