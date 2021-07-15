@@ -23,17 +23,17 @@ function ticTacToe() {
         var position = RandomNumberInArray(matriz);
 
         if (Player) {
-            //printMatriz(matriz, position, player);
             xArray.push(position);
             Player = !Player;
             xWin = checkCondition(xArray);
 
         } else {
-            //printMatriz(matriz, position, player);
             oArray.push(position);
             Player = !Player;
             oWin = checkCondition(oArray);
         }
+        printMatriz(9, xArray, oArray);
+
         matriz.splice(matriz.indexOf(position), 1);
     }
 
@@ -65,16 +65,24 @@ function checkCondition(array) {
     return false;
 }
 
-function printMatriz(matriz, position, player) {
-    var matrizPrint = ""
-
-    for (var index = 0; index < (matriz.length) / 3; index++) {
-        for (var jindex = 0; jindex < (matriz.length) / 3; jindex++) {
-            matrizPrint += jindex == 2 ? ' ' : ' |';
+function printMatriz(lengthMatriz, xArray, oArray) {
+    var matrizPrint = "";
+    var position = 0;
+    
+    for (var index = 0; index < lengthMatriz / 3; index++) {
+        for (var jindex = 0; jindex < lengthMatriz / 3; jindex++) {
+            if(xArray.indexOf(position) > -1){
+                matrizPrint +=  jindex == 2 ? 'X' : 'X|';
+            }else if(oArray.indexOf(position) > -1){
+                matrizPrint +=  jindex == 2 ? 'O' : 'O|';
+            }else{
+                matrizPrint += jindex == 2 ? ' ' : ' |';
+            }  
+            position++;
         }
         matrizPrint += index == 2 ? '' : '\n' + '-+-+-' + '\n';
     }
-    console.log(matriz);
+
     console.log(matrizPrint);
 }
 
